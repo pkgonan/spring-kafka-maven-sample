@@ -1,0 +1,16 @@
+spring:
+  kafka:
+    bootstrap-servers: fixme
+    producer:
+      key-serializer: io.confluent.kafka.serializers.KafkaAvroSerializer
+      value-serializer: io.confluent.kafka.serializers.KafkaAvroSerializer
+      properties:
+        schema.registry.url: fixme
+    consumer:
+      group-id: spring-kafka-maven-sample
+      key-deserializer: io.confluent.kafka.serializers.KafkaAvroDeserializer
+      value-deserializer: io.confluent.kafka.serializers.KafkaAvroDeserializer
+      properties:
+        schema.registry.url: fixme
+        specific.avro.reader: true          # SpecificRecord 사용시에 true
+        spring.json.trusted.packages: "*"
