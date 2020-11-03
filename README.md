@@ -12,6 +12,7 @@
         <param>^test-topic-(key|value)$</param>
     </subjectPatterns>
     ```
+
 - Second, Change schema registry url
     ```
     <schemaRegistryUrl>http://localhost:8081</schemaRegistryUrl>
