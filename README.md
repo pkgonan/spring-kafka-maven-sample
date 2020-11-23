@@ -13,17 +13,24 @@
     </subjectPatterns>
     ```
 
-- Second, Change schema registry url
+- Second, Change fixme keyword at application.yml
+    ```
+    bootstrap-servers: fixme
+
+    schema.registry.url: fixme
+    ```
+
+- Third, Change schema registry url
     ```
     <schemaRegistryUrl>http://localhost:8081</schemaRegistryUrl>
     ```
 
-- Third, Download schema and generate java code using maven build
+- Fourth, Download schema and generate java code using maven build
     ```
     mvn package
     ```
 
-- Fourth, Change ConsumerRecord key & value class to generated java class
+- Fifth, Change ConsumerRecord key & value class to generated java class
     ```
     fun handle(record: ConsumerRecord<Any, Any>)
     ```
