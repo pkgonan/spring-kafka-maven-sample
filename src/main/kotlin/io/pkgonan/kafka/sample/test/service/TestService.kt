@@ -1,5 +1,6 @@
 package io.pkgonan.kafka.sample.test.service
 
+import org.apache.avro.generic.GenericRecord
 import org.apache.kafka.clients.consumer.ConsumerRecord
 import org.slf4j.Logger
 import org.slf4j.LoggerFactory
@@ -13,10 +14,12 @@ class TestService {
         val logger: Logger = LoggerFactory.getLogger(this::class.java)
     }
 
-    // Fixme : Change Topic
-    // Fixme : Change Key & Value of ConsumerRecord<Any, Any> -> ConsumerRecord<Key, Envelope>
     @KafkaListener(topics = ["test-topic"])
-    fun handle(record: ConsumerRecord<Any, Any>) {
+    fun handle(record: ConsumerRecord<GenericRecord, GenericRecord>) {
+        val value = record.value()!!
+        val jsonFormattedValue = value.toString()
+
         logger.info("Record : $record")
+        logger.info("Json Formatted Value : $jsonFormattedValue")
     }
 }
